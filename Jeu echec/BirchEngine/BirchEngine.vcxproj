@@ -23,7 +23,7 @@
     <ProjectGuid>{CE353F93-BF7C-4368-BE55-A8C0FAF6E793}</ProjectGuid>
     <RootNamespace>BirchEngine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>RunPoorGirl</ProjectName>
+    <ProjectName>Echec</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -151,7 +151,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\main.cpp" />
+    <ClCompile Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\Board.cpp" />
+    <ClCompile Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\BoardState.cpp" />
+    <ClCompile Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\Game.cpp" />
+    <ClCompile Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\main.cpp" />
+    <ClCompile Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\MoveStack.cpp" />
+    <ClCompile Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\Piece.cpp" />
+    <ClCompile Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\PieceLocations.cpp" />
+    <ClCompile Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\StoreMove.cpp" />
+    <ClCompile Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\Board.h" />
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\BoardState.h" />
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\Box.h" />
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\Game.h" />
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\KingThreatenedInfo.h" />
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\Move.h" />
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\MoveStack.h" />
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\Piece.h" />
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\PieceLocations.h" />
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\StoreMove.h" />
+    <ClInclude Include="..\..\..\Users\obern\Downloads\BetterChess-main\BetterChess-main\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
