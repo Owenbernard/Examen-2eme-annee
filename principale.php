@@ -21,19 +21,19 @@
 		margin:auto;
 	}
 	#form2 {
-		background: #5FBB80;
+		background: #95EFDD;
 		-moz-border-radius: 5px;
 		-webkit-border-radius: 5px;
 		border-radius: 5px;
 	}
 	#InputValue {
-		background: #5FBB80;
+		background: #95EFDD;
 		-moz-border-radius: 5px;
 		-webkit-border-radius: 5px;
 		border-radius: 5px;
 	}
 	#form3 {
-		background: #5fbb99;
+		background: #7CE3CF;
 		-moz-border-radius: 5px;
 		-webkit-border-radius: 5px;
 		border-radius: 5px;
@@ -105,6 +105,9 @@
 					//mise dans le fichier
 					fwrite($file, $xml);
 					fclose($file);
+
+					
+
 				}
 			}else{
 			//si le fichier n'existe pas
@@ -113,7 +116,6 @@
 				//mise dans le fichier
 				fwrite($file, $xml);
 				fclose($file);
-
 			}
 
         }
@@ -195,6 +197,7 @@
 					["admin","fez",210,"12-02-2020"]
 					
 				];
+
 				*/
 
 			}
@@ -333,7 +336,6 @@
 			
 			}
 
-
 			function creation() {
 
 				var tabl = <?php echo json_encode($tabScore); ?>;
@@ -359,17 +361,21 @@
 				while (isNaN(c)) {
 					c = parseInt(prompt("entrez votre score sur : "+m,""));
 				}
-				alert(c);
-
-				if (tabl.length=1) {
-					if ((tabl[0] = "exemple")&&(tabl[1]=1000)&&(tabl[2]="01-01-2000"))
-					{
-						tabl.pop();
+				//alert(c);
+				
+				if ((tabl[0][1]=="exemple")&&(tabl[0][2]==1000)&&(tabl[0][3]=="01-01-2000")) {
+					for(i=0;i<tabl.length-1;i++) {
+						tabl[i][0] = tabl[i+1][0];
+						tabl[i][1] = tabl[i+1][1];
+						tabl[i][2] = tabl[i+1][2];
+						tabl[i][3] = tabl[i+1][3];
 					}
+					tabl.pop();
 				}
 				tabl.push([user, m, c, date]);
 				console.log(tabl);
-				
+
+
 				document.getElementById('tab').value=tabl;
 				document.getElementById('nam').value=user;
 
@@ -403,7 +409,7 @@
 				var today = new Date();
 				if (confirm('A quelle date ?')) {
 					var d = prompt("entrez une date : "+today.getDate()+"-"+(today.getMonth()+1)+"-"+today.getFullYear());
-					while (isNaN(d.slice(0,2) || isNaN(d.slice(3,2) || isNaN(d.slice(5,4)) 
+					while (isNaN(d.slice(0,2)) || isNaN(d.slice(3,2)) || isNaN(d.slice(5,4))) 
 					{
 						var d = prompt("entrez une date : "+today.getDate()+"-"+(today.getMonth()+1)+"-"+today.getFullYear());
 					}

@@ -10,7 +10,7 @@
 	<script>
 		var style = document.createElement('style');
 		style.type = 'text/css';
-		fromstyle ='form{background: #5FBB80;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;padding: 20px;width: 600px;margin:auto;}';
+		fromstyle ='form{background: #95EFDD;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;padding: 20px;width: 600px;margin:auto;}';
 		hstyle = 'h1{font-size: 60px;margin-left:160px;}';
 		inputstyle = 'input{margin-left:60px;}';
 		boutonstyle = '#btndiv{background-color: #77D3B0;border: solid 3px #5F5F5F;margin: 3px;margin-left:240px;padding: 10px;border-radius: 5px;display: inline-block;}';
