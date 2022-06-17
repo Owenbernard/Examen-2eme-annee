@@ -26,15 +26,15 @@
 		//$tabl = [['admin','admin'],['toto','meh'],['caki','pomme']];
 
 
-		if (!file_exists("stock.xml")) {
+		if (!file_exists("stock.txt")) {
 
 			echo "<script>window.alert('il n existe pas de fichier, la completion de ce formulaire creera un nouveau compte');</script>";
 			// tres important
 			echo "<input type='hidden' id='tabl' name='stockTab' value='1'>";
 			
-			$file = fopen("stock.xml", "w") or die("Unable to open file!");
+			$file = fopen("stock.txt", "w") or die("Unable to open file!");
 			fclose($file);
-			$file = fopen("stock.xml", "rb") or die("Unable to open file!");
+			$file = fopen("stock.txt", "rb") or die("Unable to open file!");
 			fclose($file);
 
 			$tabl = [['-','-']];
@@ -44,9 +44,9 @@
 
 			echo "<input type='hidden' id='tabl' name='stockTab' value='1'>";
 			
-			$file = fopen("stock.xml", "rb") or die("Unable to open file!");
-			if (filesize("stock.xml")!=0) {
-				$mot = fread($file, filesize("stock.xml"));
+			$file = fopen("stock.txt", "rb") or die("Unable to open file!");
+			if (filesize("stock.txt")!=0) {
+				$mot = fread($file, filesize("stock.txt"));
 				$lg = explode('@/l',$mot);
 
 				for ($i=0;$i<sizeof($lg)-1;$i++) {

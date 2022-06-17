@@ -26,12 +26,12 @@
 		//$tabl = [['admin','admin'],['toto','meh'],['caki','pomme']];
 
 
-		if (file_exists("stock.xml")) {
+		if (file_exists("stock.txt")) {
 
 			//header('location:index.php');
-			$file = fopen("stock.xml", "rb") or die("Unable to open file!");
-			if (filesize("stock.xml")!=0) {
-				$mot = fread($file, filesize("stock.xml"));
+			$file = fopen("stock.txt", "rb") or die("Unable to open file!");
+			if (filesize("stock.txt")!=0) {
+				$mot = fread($file, filesize("stock.txt"));
 
 				$lg = explode('@/l',$mot);
 
@@ -45,15 +45,6 @@
 				header('location:CreationCompte.php');
 			}
 			fclose($file);
-
-			//echo "$mot";
-			
-		   //le fichier xml est au même niveau que le fichier PHP qui le manipule
-		   //$fichier = 'stock.xml';
-		   //$contenu = simplexml_load_file($fichier);
-		    //echo '<pre>';
-			//print_r($contenu);
-			//echo '</pre>';
 
 		}else{
 			
