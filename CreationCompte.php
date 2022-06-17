@@ -13,7 +13,7 @@
 		fromstyle ='form{background: #5FBB80;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;padding: 20px;width: 600px;margin:auto;}';
 		hstyle = 'h1{font-size: 60px;margin-left:160px;}';
 		inputstyle = 'input{margin-left:60px;}';
-		boutonstyle = '#btndiv{background-color: #77D3B0;border: solid 3px #5F5F5F;margin: 3px;margin-left:240px;padding: 10px;border-radius: 5px;display: inline-block;}';
+		boutonstyle = '#btndiv{background-color: #77D3B0;border: solid 3px #5F5F5F;margin: 3px;margin-left:200px;padding: 10px;border-radius: 5px;display: inline-block;}';
 		bodystyle = 'body{font-family: comic sans ms;background-color: #111119;border-radius: 5px;}';
 			
 		style.innerHTML = fromstyle + hstyle + inputstyle + bodystyle + boutonstyle;
@@ -26,13 +26,27 @@
 		//$tabl = [['admin','admin'],['toto','meh'],['caki','pomme']];
 
 
-		if (file_exists("stock.xml")) {
+		if (!file_exists("stock.xml")) {
 
-			//header('location:index.php');
+			echo "<script>window.alert('il n existe pas de fichier, la completion de ce formulaire creera un nouveau compte');</script>";
+			// tres important
+			echo "<input type='hidden' id='tabl' name='stockTab' value='1'>";
+			
+			$file = fopen("stock.xml", "w") or die("Unable to open file!");
+			fclose($file);
+			$file = fopen("stock.xml", "rb") or die("Unable to open file!");
+			fclose($file);
+
+			$tabl = [['-','-']];
+
+		}else{
+
+
+			echo "<input type='hidden' id='tabl' name='stockTab' value='1'>";
+			
 			$file = fopen("stock.xml", "rb") or die("Unable to open file!");
 			if (filesize("stock.xml")!=0) {
 				$mot = fread($file, filesize("stock.xml"));
-
 				$lg = explode('@/l',$mot);
 
 				for ($i=0;$i<sizeof($lg)-1;$i++) {
@@ -42,38 +56,25 @@
 					$tabl[$i][1] = $lg2[1];
 				}
 			}else{
-				header('location:CreationCompte.php');
+				$tabl = [['-','-']];
 			}
 			fclose($file);
 
-			//echo "$mot";
-			
-		   //le fichier xml est au même niveau que le fichier PHP qui le manipule
-		   //$fichier = 'stock.xml';
-		   //$contenu = simplexml_load_file($fichier);
-		    //echo '<pre>';
-			//print_r($contenu);
-			//echo '</pre>';
+			//echo "$mot";	
 
-		}else{
-			
-			echo "<script>window.alert('il n'existe pas de fichier, la completion de ce formulaire creera un nouveau compte');</script>";
-			// tres important
-			header('location:CreationCompte.php');
-				
 		}
 
 	echo '
 	
 	<form method="GET" action="" id="form1" name="bod">	
-		<h1>connexion</h1>
+		<h1>Creation</h1>
 		<br>
 		<p STYLE="padding:0 0 0 60px;">username :<input type="text" id="username" name="username" value=" " required/> </p>
         <p STYLE="padding:0 0 0 60px;">password :<input type="text" id="password" name="password" value=" " required/> </p><br><br>
-		
-		<div id="btndiv" onclick="next()">Valider</div><br><br>
-		<p style="padding:0 0 0 80px;">Pas de compte ? : <a href="CreationCompte.php">creer un compte</a><br></p>
+		<input type="hidden" name="creaCompte" value="1"/>
+		<div id="btndiv" onclick="next()">Creation du compte</div><br><br>
 		</form>
+		
 	';
 
 	?>
@@ -95,22 +96,16 @@
 						i ++;
 					}
 					console.log(i);
-					if (i < tabl.length) {
+					if (i < tabl.length-1) {
 						
-						if (tabl[i][1] == pass) {
-							//window.alert("Bienvenue");
-
-							document.getElementById("form1").action = "principale.php";
-							console.log(document.getElementById("form1").action);
-							document.getElementById("form1").submit();
-
-
-						}else{
-							window.alert("le mot de passe ne correspond pas au nom donne");
-						}
+						window.alert("Cet utilisateur existe deja");
+		
 					}else{
 
-						window.alert("le nom n'existe pas, vous pouvez creer un nouveau compte avec");
+						document.getElementById("form1").action = "principale.php";
+						console.log(document.getElementById("form1").action);
+						document.getElementById("form1").submit();
+
 					}					
 
 				}else{
